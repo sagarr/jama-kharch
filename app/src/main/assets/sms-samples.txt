@@ -1,0 +1,30 @@
+# ====================================
+# Jama Kharch – SMS Test Samples
+# ====================================
+# These simulate bank SMS messages for testing the parser & classifier.
+# Lines starting with # are ignored.
+
+# --- ICICI Debit Card Swipe ---
+Rs. 452.00 debited from ICICI Bank Acc XX407 on 06-Jun-26 MIN*WWW AMAZO. Bal Rs. 2,38,402.98. If not you call 18002662 or SMS BLOCK 407 to 9215676766
+
+# --- ICICI UPI ---
+ICICI Bank Acct XX407 debited for Rs 488.00 on 06-Jun-26; SUNTOSH CATERER credited. UPI:307501051847. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
+
+ICICI Bank Acct XX407 debited for Rs 163.00 on 05-Jun-26; MEDICO POINT credited. UPI:307473769570. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
+
+ICICI Bank Acct XX407 debited for Rs 2000.00 on 06-Jun-26; M S AZOTH ENTER credited. UPI:207800335441. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
+
+ICICI Bank Acct XX407 debited for Rs 2300.00 on 05-Jun-26; Ronak Shoes and credited. UPI:307469868846. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
+
+ICICI Bank Acct XX407 debited for Rs 195.00 on 05-Jun-26; Mahadik Chicken credited. UPI:307438854342. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
+
+ICICI Bank Acct XX407 debited for Rs 2500.00 on 04-Jun-26; samantseema14 o credited. UPI:615547617885. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
+
+ICICI Bank Acct XX407 debited for Rs 224.00 on 04-Jun-26; Amazon India credited. UPI:615532875177. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
+
+# --- HDFC (hypothetical patterns for future) ---
+# Rs.850.00 spent on your HDFC Bank Card XX1234 at BIGBASKET on 01-Jun-26. Available limit Rs.45,000.
+# HDFC Bank: Rs.320.00 debited from A/C XX5678 on 02-Jun-26 at RELIANCE FRESH. Balance Rs.12,340.
+
+# --- SBI (hypothetical) ---
+# Rs.1500.00 transferred from SBI A/C XX9012 to SWIGGY on 03-Jun-26 via UPI. Ref: SBINR12345.
