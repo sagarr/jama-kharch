@@ -12,6 +12,11 @@ object SmsParser {
         RegexOption.IGNORE_CASE
     )
 
+    private val patternUpiP2P = Regex(
+        """debited\s+with\s+(?:INR|Rs\.?)\s*([\d,]+\.?\d*)\s+on\s+\d{2}-\w{3}-\d{2}\.\s*Acct\s+\w+\s+credited""",
+        RegexOption.IGNORE_CASE
+    )
+
     private val patternGeneric = Regex(
         """(?:Rs\.?|INR)\s*([\d,]+\.?\d*)""",
         RegexOption.IGNORE_CASE
@@ -30,6 +35,11 @@ object SmsParser {
             val amount = match.groupValues[1].replace(",", "").toDoubleOrNull() ?: return null
             val merchant = match.groupValues[2].trim()
             return ParsedSms(amount, merchant, smsTimestamp, cleanBody)
+        }
+
+        patternUpiP2P.find(cleanBody)?.let { match ->
+            val amount = match.groupValues[1].replace(",", "").toDoubleOrNull() ?: return null
+            return ParsedSms(amount, "UPI Transfer", smsTimestamp, cleanBody)
         }
 
         return null

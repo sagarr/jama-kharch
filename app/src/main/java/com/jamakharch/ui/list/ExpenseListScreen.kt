@@ -252,5 +252,6 @@ fun categoryColor(category: Category): Color = when (category) {
     Category.INVESTMENT -> Color(0xFF00695C)
     Category.TRAVEL -> Color(0xFF0277BD)
     Category.SCHOOL -> Color(0xFFAD1457)
+    Category.HOUSE_HELP -> Color(0xFFFF8A65)
     Category.OTHERS -> Color(0xFF757575)
 }

@@ -12,12 +12,24 @@ android {
         applicationId = "com.jamakharch"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
+
+        val gitSha = providers.exec {
+            commandLine("git", "rev-parse", "--short", "HEAD")
+        }.standardOutput.asText.get().trim()
+
+        val gitDate = providers.exec {
+            commandLine("git", "log", "-1", "--format=%ad", "--date=short")
+        }.standardOutput.asText.get().trim()
+
+        buildConfigField("String", "GIT_SHA", "\"$gitSha\"")
+        buildConfigField("String", "GIT_DATE", "\"$gitDate\"")
     }
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {

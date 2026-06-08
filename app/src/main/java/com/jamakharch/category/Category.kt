@@ -13,5 +13,6 @@ enum class Category(val label: String) {
     INVESTMENT("Investment"),
     TRAVEL("Travel"),
     SCHOOL("School"),
+    HOUSE_HELP("Maid/House Help"),
     OTHERS("Others")
 }

@@ -144,6 +144,15 @@ object Classifier {
         Rule("byjus", Category.SCHOOL),
         Rule("unacademy", Category.SCHOOL),
         Rule("vedantu", Category.SCHOOL),
+
+        Rule("maid", Category.HOUSE_HELP),
+        Rule("house help", Category.HOUSE_HELP),
+        Rule("domestic help", Category.HOUSE_HELP),
+        Rule("bai", Category.HOUSE_HELP),
+        Rule("kanta", Category.HOUSE_HELP),
+        Rule("kamwali", Category.HOUSE_HELP),
+        Rule("servant", Category.HOUSE_HELP),
+        Rule("salary", Category.HOUSE_HELP),
     )
 
     fun classify(merchant: String, overrideLookup: ((String) -> Category?)? = null): Category {

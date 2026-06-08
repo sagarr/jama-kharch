@@ -22,6 +22,9 @@ ICICI Bank Acct XX407 debited for Rs 2500.00 on 04-Jun-26; samantseema14 o credi
 
 ICICI Bank Acct XX407 debited for Rs 224.00 on 04-Jun-26; Amazon India credited. UPI:615532875177. Call 18002662 for dispute. SMS BLOCK 407 to 9215676766.
 
+# --- ICICI P2P UPI (no merchant name) ---
+ICICI Bank Acct XXX407 debited with INR 2500.00 on 07-Jun-26. Acct XXX906 credited.UPI:615855745941.Call 18002662 for dispute or SMS BLOCK 407 to 9215676766.
+
 # --- HDFC (hypothetical patterns for future) ---
 # Rs.850.00 spent on your HDFC Bank Card XX1234 at BIGBASKET on 01-Jun-26. Available limit Rs.45,000.
 # HDFC Bank: Rs.320.00 debited from A/C XX5678 on 02-Jun-26 at RELIANCE FRESH. Balance Rs.12,340.

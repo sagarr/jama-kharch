@@ -56,6 +56,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.jamakharch.BuildConfig
 import com.jamakharch.category.Category
 import com.jamakharch.ui.list.ExpenseListVM
 import com.jamakharch.ui.list.categoryColor
@@ -157,7 +158,13 @@ fun SummaryScreen(
                     text = "Auto-backup: ${scanVM.autoBackupPath()}",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
+                )
+                Text(
+                    text = "v${BuildConfig.VERSION_NAME} (${BuildConfig.GIT_SHA}) ${BuildConfig.GIT_DATE}",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
                 )
             }
         }
