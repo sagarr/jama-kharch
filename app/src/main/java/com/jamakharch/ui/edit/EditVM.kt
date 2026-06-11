@@ -50,11 +50,16 @@ class EditVM(
         dao.updateCategory(expenseId, name)
         val merchant = _expense.value?.merchant ?: return
         val lowerMerchant = merchant.lowercase()
-        val overrideDao = AppDatabase.getInstance(appContext).merchantOverrideDao()
-        overrideDao.setOverride(
-            MerchantOverrideEntity(merchant = lowerMerchant, category = name)
-        )
-        dao.updateCategoryByMerchant(lowerMerchant, name)
+
+        val isGeneric = lowerMerchant in setOf("upi transfer", "unknown")
+        if (!isGeneric) {
+            val overrideDao = AppDatabase.getInstance(appContext).merchantOverrideDao()
+            overrideDao.setOverride(
+                MerchantOverrideEntity(merchant = lowerMerchant, category = name)
+            )
+            dao.updateCategoryByMerchant(lowerMerchant, name)
+        }
+
         MappingBackup.writeAuto(appContext)
         _saved.value = true
     }
