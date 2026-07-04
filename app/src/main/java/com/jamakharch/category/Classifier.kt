@@ -113,10 +113,10 @@ object Classifier {
         Rule("bill pay", Category.UTILITIES),
         Rule("mobile", Category.UTILITIES),
 
-        Rule("insurance", Category.HEALTH),
-        Rule("premium", Category.HEALTH),
         Rule("health", Category.HEALTH),
-        Rule("policy", Category.HEALTH),
+        Rule("insurance", Category.INSURANCE),
+        Rule("premium", Category.INSURANCE),
+        Rule("policy", Category.INSURANCE),
 
         Rule("mutual fund", Category.INVESTMENT),
         Rule("ppf", Category.INVESTMENT),
