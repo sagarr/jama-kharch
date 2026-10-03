@@ -12,8 +12,18 @@ object SmsParser {
         RegexOption.IGNORE_CASE
     )
 
+    private val patternBankTransfer = Regex(
+        """debited\s+with\s+(?:INR|Rs\.?)\s*([\d,]+\.?\d*)\s+on\s+\d{2}-\w{3}-\d{2}\s*&\s*Acct\s+(\w+)\s+credited""",
+        RegexOption.IGNORE_CASE
+    )
+
     private val patternUpiP2P = Regex(
         """debited\s+with\s+(?:INR|Rs\.?)\s*([\d,]+\.?\d*)\s+on\s+\d{2}-\w{3}-\d{2}\.\s*Acct\s+\w+\s+credited""",
+        RegexOption.IGNORE_CASE
+    )
+
+    private val patternNeftDebit = Regex(
+        """Acc(?:t)?\s+\w+\s+debited\s+(?:Rs\.?|INR)\s*([\d,]+\.?\d*)\s+on\s+\d{2}-\w{3}-\d{2}\s+(.+?)\.\s*Avl Bal""",
         RegexOption.IGNORE_CASE
     )
 
@@ -37,9 +47,21 @@ object SmsParser {
             return ParsedSms(amount, merchant, smsTimestamp, cleanBody)
         }
 
+        patternBankTransfer.find(cleanBody)?.let { match ->
+            val amount = match.groupValues[1].replace(",", "").toDoubleOrNull() ?: return null
+            val merchant = "Bank Transfer to ${match.groupValues[2].trim()}"
+            return ParsedSms(amount, merchant, smsTimestamp, cleanBody)
+        }
+
         patternUpiP2P.find(cleanBody)?.let { match ->
             val amount = match.groupValues[1].replace(",", "").toDoubleOrNull() ?: return null
             return ParsedSms(amount, "UPI Transfer", smsTimestamp, cleanBody)
+        }
+
+        patternNeftDebit.find(cleanBody)?.let { match ->
+            val amount = match.groupValues[1].replace(",", "").toDoubleOrNull() ?: return null
+            val merchant = "Bank Transfer ${match.groupValues[2].trim()}"
+            return ParsedSms(amount, merchant, smsTimestamp, cleanBody)
         }
 
         return null
